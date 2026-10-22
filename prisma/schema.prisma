@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum QuestionType {
+  TEXT
+  EMAIL
+  MULTIPLE_CHOICE
+  YES_NO
+}
+
+model Form {
+  id                String       @id @default(cuid())
+  title             String
+  description       String?
+  isPublished       Boolean      @default(false)
+  welcomeMessage    String       @default("Hello! Welcome to our conversational form.")
+  completionMessage String       @default("Thank you! Your response has been successfully recorded.")
+  themeColor        String       @default("#4F46E5") // Indigo default
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  questions         Question[]
+  submissions       Submission[]
+
+  @@map("forms")
+}
+
+model Question {
+  id          String       @id @default(cuid())
+  formId      String
+  form        Form         @relation(fields: [formId], references: [id], onDelete: Cascade)
+  label       String
+  type        QuestionType @default(TEXT)
+  placeholder String?
+  options     String?      // Stored as JSON string array, e.g. ["Product", "Service", "Other"]
+  isRequired  Boolean      @default(true)
+  orderIndex  Int          @default(0)
+  createdAt   DateTime     @default(now())
+
+  answers     Answer[]
+
+  @@map("questions")
+}
+
+model Submission {
+  id          String   @id @default(cuid())
+  formId      String
+  form        Form     @relation(fields: [formId], references: [id], onDelete: Cascade)
+  submittedAt DateTime @default(now())
+  metadata    String?  // JSON string: user-agent, IP/location, referrer
+
+  answers     Answer[]
+
+  @@map("submissions")
+}
+
+model Answer {
+  id           String     @id @default(cuid())
+  submissionId String
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  questionId   String
+  question     Question   @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  value        String
+
+  @@map("answers")
+}
