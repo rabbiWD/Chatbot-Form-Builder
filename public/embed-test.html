@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>External Website Demo | Chatbot Widget Embed Test</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+      padding: 0;
+    }
+    header {
+      border-b: 1px solid #1e293b;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #818cf8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #f8fafc; }
+    .hero {
+      max-width: 900px;
+      margin: 5rem auto;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(to right, #ffffff, #cbd5e1, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subhead {
+      font-size: 1.125rem;
+      color: #94a3b8;
+      margin-bottom: 2.5rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 1.75rem;
+      border-radius: 1rem;
+      text-align: left;
+    }
+    .card h3 { font-size: 1.125rem; margin-bottom: 0.5rem; color: #f1f5f9; }
+    .card p { font-size: 0.875rem; color: #94a3b8; }
+    .instruction-box {
+      max-width: 750px;
+      margin: 2rem auto;
+      background: #020617;
+      border: 1px dashed #4338ca;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    .instruction-box code {
+      display: block;
+      background: #0f172a;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-family: monospace;
+      font-size: 0.8125rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span>🚀 Acme Cloud Platform</span>
+    </div>
+    <nav>
+      <a href="/">Form Builder App</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/f/demo-lead-gen">Public Form</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="badge">Third-Party Website Simulator</div>
+    <h1>Testing Floating Chatbot Widget Embed</h1>
+    <p class="subhead">
+      This page simulates an external company website. Look at the bottom-right corner: our embed script has automatically mounted the interactive floating chatbot!
+    </p>
+
+    <div class="instruction-box">
+      <strong>Embedded Script Snippet:</strong>
+      <code>&lt;script src="/widget.js" data-form-id="demo-lead-gen" data-theme="#4F46E5" async&gt;&lt;/script&gt;</code>
+    </div>
+  </main>
+
+  <section class="cards">
+    <div class="card">
+      <h3>⚡ Instant Launcher</h3>
+      <p>Click the floating button in the bottom right corner to trigger the conversational widget.</p>
+    </div>
+    <div class="card">
+      <h3>📱 Mobile Responsive</h3>
+      <p>Seamlessly scales from desktop popover card to mobile viewports.</p>
+    </div>
+    <div class="card">
+      <h3>🔒 Zero Conflicts</h3>
+      <p>Runs cleanly in an isolated container without affecting host styles or JavaScript.</p>
+    </div>
+  </section>
+
+  <!-- Embed Widget Script for demo-lead-gen -->
+  <script src="/widget.js" data-form-id="demo-lead-gen" data-theme="#4F46E5" async></script>
+</body>
+</html>
