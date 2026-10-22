@@ -1,17 +1,27 @@
-export default function HomePage() {
+import Navbar from "@/components/landing/Navbar";
+import HeroSection from "@/components/landing/HeroSection";
+import LiveDemoSection from "@/components/landing/LiveDemoSection";
+import FeaturesSection from "@/components/landing/FeaturesSection";
+import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import Footer from "@/components/landing/Footer";
+
+export const metadata = {
+  title: "Chatbot Form Builder | Conversational Forms & Website Embed",
+  description:
+    "Transform traditional forms into engaging conversational chat experiences. Embed widgets on any website, collect responses, and analyze submissions effortlessly.",
+};
+
+export default function LandingPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 text-center">
-      <div className="max-w-2xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-          Chatbot Form Builder
-        </div>
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
-          Conversational Forms Reimagined
-        </h1>
-        <p className="text-slate-400 text-lg">
-          Scaffolding initialized successfully with Next.js, TypeScript, and Tailwind CSS.
-        </p>
-      </div>
-    </main>
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-indigo-500 selection:text-white">
+      <Navbar />
+      <main className="flex-1">
+        <HeroSection />
+        <LiveDemoSection />
+        <FeaturesSection />
+        <HowItWorksSection />
+      </main>
+      <Footer />
+    </div>
   );
 }
